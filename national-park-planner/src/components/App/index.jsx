@@ -8,7 +8,7 @@ function App() {
 
     async function getData() {
       const res = await fetch('https://developer.nps.gov/api/v1/parks?parkCode=&api_key=EHE50dVZ9QSYk40I3F5PyWw0xg6XWf7tgecRSSyx')
-      const park = await res.json()
+      const { data } = await res.json()
       // console.log()
     }
 
