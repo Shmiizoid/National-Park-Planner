@@ -13,24 +13,21 @@ export default function HomePage() {
         getData();
     }, []);
 
+    const firstArticle = articles.length > 0 ? articles[0] : null;
+    const defaultImageUrl = 'https://www.amtrakvacations.com/sites/amtrak/files/styles/hero/public/images/Destination-Yosemite.jpg?h=3a3df0c5&itok=rGMyppyy';
+
     return (
         <>
             <h1>Welcome!</h1>
-            {articles.length > 0 ? (
-                <div>
-                    {articles.map(article => (
-                        <div key={article.id}>
-                            <h2>{article.title}</h2>
-                            {article.image.url ? (
-                                <img src={article.image.url} alt={article.title} />
-                            ) : (
-                                <p>No image available</p>
-                            )}
-                        </div>
-                    ))}
+            {firstArticle ? (
+                <div key={firstArticle.id}>
+                    
+                    <p>Release Date: {firstArticle.releaseDate}</p>
+                    <img src={firstArticle.image.url || defaultImageUrl} alt={firstArticle.title} />
+                    <h2>{firstArticle.title}</h2>
                 </div>
             ) : (
-                <p>News articles loading...</p>
+                <p>News article loading...</p>
             )}
         </>
     );
