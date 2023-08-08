@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link } from "react-router-dom";
-import Gallery from '../Gallery'
 import HomePage from '../HomePage'
 import DetailsPage from '../DetailsPage'
 import './styles.css';
+import ParksPage from '../ParksPage';
 
 function App() {
   const [parks, setParks] = useState([])
@@ -25,22 +25,27 @@ function App() {
 
   return (
     <>
-    <nav>
-      <Link to="/">
-        Home
-      </Link>
-    </nav>
+      <nav>
+        <Link to="/">
+         Home
+        </Link>
+        <Link to="/parks">
+        Parks
+        </Link>
+      </nav>
 
-    <Routes>
-          <Route path="/" element={
-              <HomePage
+      <Routes>
+        <Route path="/" element={<HomePage/>}  />
+
+        <Route path="/parks" element={
+              <ParksPage
               parks={parks}
               getData={getData}
               setDetailsData={setDetailsData}
               />}
               />
               <Route path="/details" element={<DetailsPage {...detailsData} />} />
-          </Routes>
+      </Routes>
     </>
 )
       }
