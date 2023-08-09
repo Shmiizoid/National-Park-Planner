@@ -1,74 +1,62 @@
-import { useState, useEffect } from "react"
-import { postReview, getReviews } from "../../../utils/backend"
-import Review from "../Review"
+import React, { useState, useEffect } from "react";
+import { postReview, getReviews } from "../../../utils/backend";
+import Review from "../Review";
 
-export default function reviewSection({ parkId }) {
-   
-    const [reviews, setReviews] = useState([])
-    const [showCreateForm, setShowCreateForm] = useState(false)
+function ReviewSection({ parkId }) {
+    const [reviews, setReviews] = useState([]);
+    const [showCreateForm, setShowCreateForm] = useState(false);
     const [createFormData, setCreateFormData] = useState({
+        title: '',
         name: '',
-        content: ''
-    })
+        content: '',
+        tripDate: '',
+    });
 
     useEffect(() => {
-        console.log(parkId)
+        console.log(parkId);
         getReviews(parkId)
-            .then(reviews => setReviews(reviews))
-    }, [])
+            .then(reviews => setReviews(reviews));
+    }, []);
 
     function handleInputChange(event) {
         setCreateFormData({
             ...createFormData,
             [event.target.name]: event.target.value
-        })
+        });
     }
 
     function toggleCreateForm() {
-        setShowCreateForm(!showCreateForm)
+        setShowCreateForm(!showCreateForm);
     }
 
     function refreshReviews() {
         getReviews(parkId)
-            .then(newReviewData => setReviews(newReviewData))
+            .then(newReviewData => setReviews(newReviewData));
     }
-    
-        function handleSubmit(event) {
-            event.preventDefault()
-            setCreateFormData({
-                name: '',
-                content: ''
-            })
-     
-            setShowCreateForm(false)
-     
-            postReview({ ...createFormData, parkId: parkId })
-                .then(() => refreshReviews())
-        }
-    
-        let reviewElements = [<p key='0'>No reviews yet. Be the first to share your experience!</p>]
-        if (reviews.length > 0) {
-            reviewElements = reviews.map(review => {
-                return <Review
-                    key={review._id}
-                    data={review}
-                    refreshReviews={refreshReviews}
-                />
-            })
-        }
 
-        let btnText = 'Create'
-        if (showCreateForm) {
-            btnText = 'Close'
-        }
+    function handleSubmit(event) {
+        event.preventDefault();
+        setShowCreateForm(false);
+
+        postReview({ ...createFormData, parkId: parkId })
+            .then(() => refreshReviews());
+    }
+
     return (
         <>
             <h1>User Reviews</h1>
             <button onClick={toggleCreateForm}>
-                {btnText}
+                {showCreateForm ? 'Close' : 'Create'}
             </button>
-            {
-                showCreateForm && <form onSubmit={handleSubmit}>
+            {showCreateForm && (
+                <form onSubmit={handleSubmit}>
+                    <input
+                        name="title"
+                        placeholder="Review title"
+                        value={createFormData.title}
+                        onChange={handleInputChange}
+                    />
+                    <br />
                     <input
                         name="name"
                         placeholder="Your name"
@@ -82,10 +70,31 @@ export default function reviewSection({ parkId }) {
                         value={createFormData.content}
                         onChange={handleInputChange}
                     />
+                    <br />
+                    <input
+                        type="date"
+                        name="tripDate"
+                        value={createFormData.tripDate}
+                        onChange={handleInputChange}
+                    />
+                    <br />
                     <button type="submit">Post</button>
                 </form>
-            }
-            {reviewElements}
+            )}
+            {/* Display existing reviews */}
+            {reviews.length > 0 ? (
+                reviews.map(review => (
+                    <Review
+                        key={review._id}
+                        data={review}
+                        refreshReviews={refreshReviews}
+                    />
+                ))
+            ) : (
+                <p>No reviews yet. Be the first to share your experience!</p>
+            )}
         </>
-    )
+    );
 }
+
+export default ReviewSection;
