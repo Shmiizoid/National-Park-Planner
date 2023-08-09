@@ -6,9 +6,11 @@ const db = require('../models')
 // Routes
 
 // Index
-router.get('/', function (req, res) {
-    db.Review.find({})
-        .then(reviews => res.json(reviews))
+router.get('/:parkId', function (req, res) {
+    db.Review.find({ parkId: req.params.parkId})
+        .then(reviews => {
+            res.json(reviews)
+        })
 })
 
 // Create

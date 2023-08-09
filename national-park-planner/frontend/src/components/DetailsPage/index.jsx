@@ -1,37 +1,47 @@
 import React, { useState, useEffect } from 'react';
+import ReviewSection from '../ReviewSection';
 
-export default function DetailsPage({ fullName, description, states, activities, images }) {
+export default function DetailsPage(props) {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     useEffect(() => {
-        
-        const interval = setInterval(() => {
-            setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 3000); 
+        if (props.images && props.images.length > 0) {
+            const interval = setInterval(() => {
+                setCurrentImageIndex((prevIndex) => (prevIndex + 1) % props.images.length);
+            }, 3000);
 
-        return () => clearInterval(interval);
-    }, [images]);
+            return () => clearInterval(interval);
+        }
+    }, [props.images]);
+
+    if (!props.images || props.images.length === 0) {
+        return null; // or a loading indicator, or some other fallback
+    }
 
     return (
         <div>
-            <img src={images[currentImageIndex].url} alt={`Image ${currentImageIndex + 1}`} />
-            <h1>{fullName}</h1>       
-            <h2>States where located: {states}</h2>
-            <br></br>
+            <img src={props.images[currentImageIndex].url} alt={`Image ${currentImageIndex + 1}`} />
+            <h1>{props.fullName}</h1>
+            <h2>States where located: {props.states}</h2>
+            <br />
             <h2>____Activities Offered____</h2>
             <ul>
-                {activities.map(activity => (
+                {props.activities.map(activity => (
                     <li key={activity.id}>
                         <p>{activity.name}</p>
                     </li>
                 ))}
             </ul>
-            <br></br>
+            <br />
             <h2>---About the Park---</h2>
-            <p>{description}</p>
+            <p>{props.description}</p>
+            <div className="mt-4">
+                <ReviewSection parkId={props.id} />
+            </div>
         </div>
-    )
+    );
 }
+
 
 //carousel for images, mayb activiteis
 
