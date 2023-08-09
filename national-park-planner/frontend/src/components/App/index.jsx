@@ -24,30 +24,43 @@ function App() {
   }, [])
 
   return (
-    <>
-      <nav>
-        <Link to="/">
-         Home
-        </Link>
-        <Link to="/parks">
-        Parks
-        </Link>
-      </nav>
+    <div>
+      <header className="bg-green-900">
+        <nav className="max-w-7xl mx-auto px-4 py-6 flex">
+            <Link
+                to="/"
+                className="text-white text-xl font-semibold hover:underline hover:text-white mr-6"
+            >
+                Home
+            </Link>
+            <Link
+                to="/parks"
+                className="text-white text-xl font-semibold hover:underline hover:text-white"
+            >
+                Parks
+            </Link>
+        </nav>
+        </header>
 
-      <Routes>
-        <Route path="/" element={<HomePage/>}  />
-
-        <Route path="/parks" element={
-              <ParksPage
-              parks={parks}
-              getData={getData}
-              setDetailsData={setDetailsData}
-              />}
-              />
-              <Route path="/details" element={<DetailsPage {...detailsData} />} />
-      </Routes>
-    </>
-)
-      }
+        <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route
+                path="/parks"
+                element={
+                    <ParksPage
+                        parks={parks}
+                        getData={getData}
+                        setDetailsData={setDetailsData}
+                    />
+                }
+            />
+            <Route
+                path="/details"
+                element={<DetailsPage {...detailsData} />}
+            />
+        </Routes>
+    </div>
+);
+}
 
       export default App;

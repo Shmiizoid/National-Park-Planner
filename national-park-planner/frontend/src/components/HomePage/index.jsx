@@ -16,19 +16,24 @@ export default function HomePage() {
     const firstArticle = articles.length > 0 ? articles[0] : null;
     const defaultImageUrl = 'https://www.amtrakvacations.com/sites/amtrak/files/styles/hero/public/images/Destination-Yosemite.jpg?h=3a3df0c5&itok=rGMyppyy';
 
+    function formatReleaseDate(releaseDate) {
+        const date = new Date(releaseDate);
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        return date.toLocaleDateString(undefined, options);
+    }
+
     return (
-        <>
-            <h1>Welcome!</h1>
+        <div className="border border-brown p-4">
+            <h1 className="text-2xl font-bold mb-2">Welcome!</h1>
             {firstArticle ? (
                 <div key={firstArticle.id}>
-                    
-                    <p>Release Date: {firstArticle.releaseDate}</p>
                     <img src={firstArticle.image.url || defaultImageUrl} alt={firstArticle.title} />
-                    <h2>{firstArticle.title}</h2>
+                    <p className="text-sm">Release Date: {formatReleaseDate(firstArticle.releaseDate)}</p>
+                    <h2 className="text-lg font-semibold mt-2">{firstArticle.title}</h2>
                 </div>
             ) : (
-                <p>News article loading...</p>
+                <p className="text-sm">News article loading...</p>
             )}
-        </>
+        </div>
     );
 }

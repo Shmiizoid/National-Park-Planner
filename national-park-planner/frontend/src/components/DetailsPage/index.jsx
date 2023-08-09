@@ -3,6 +3,7 @@ import ReviewSection from '../ReviewSection';
 
 export default function DetailsPage(props) {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [showAllActivities, setShowAllActivities] = useState(false);
 
     useEffect(() => {
         if (props.images && props.images.length > 0) {
@@ -15,8 +16,12 @@ export default function DetailsPage(props) {
     }, [props.images]);
 
     if (!props.images || props.images.length === 0) {
-        return null; // or a loading indicator, or some other fallback
+        return null; 
     }
+
+    const displayedActivities = showAllActivities
+        ? props.activities
+        : props.activities.slice(0, 5);
 
     return (
         <div>
@@ -24,17 +29,23 @@ export default function DetailsPage(props) {
             <h1>{props.fullName}</h1>
             <h2>States where located: {props.states}</h2>
             <br />
+            <h2>---About the Park---</h2>
+            <p>{props.description}</p>
+            <br></br>
             <h2>____Activities Offered____</h2>
             <ul>
-                {props.activities.map(activity => (
+                {displayedActivities.map(activity => (
                     <li key={activity.id}>
                         <p>{activity.name}</p>
                     </li>
                 ))}
             </ul>
+            {props.activities.length > 5 && (
+                <button onClick={() => setShowAllActivities(!showAllActivities)}>
+                    {showAllActivities ? 'Show Less' : 'Show All Activities'}
+                </button>
+            )}
             <br />
-            <h2>---About the Park---</h2>
-            <p>{props.description}</p>
             <div className="mt-4">
                 <ReviewSection parkId={props.id} />
             </div>

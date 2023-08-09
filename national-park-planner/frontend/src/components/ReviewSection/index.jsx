@@ -43,45 +43,52 @@ function ReviewSection({ parkId }) {
     }
 
     return (
-        <>
-            <h1>User Reviews</h1>
-            <button onClick={toggleCreateForm}>
+        <div className="p-4 border border-gray-300">
+            <h1 className="text-xl font-semibold mb-2">User Reviews</h1>
+            <button
+                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                onClick={toggleCreateForm}
+            >
                 {showCreateForm ? 'Close' : 'Create'}
             </button>
             {showCreateForm && (
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className="mt-4">
                     <input
+                        className="w-full px-4 py-2 border rounded mb-2"
                         name="title"
                         placeholder="Review title"
                         value={createFormData.title}
                         onChange={handleInputChange}
                     />
-                    <br />
                     <input
+                        className="w-full px-4 py-2 border rounded mb-2"
                         name="name"
                         placeholder="Your name"
                         value={createFormData.name}
                         onChange={handleInputChange}
                     />
-                    <br />
                     <textarea
+                        className="w-full px-4 py-2 border rounded mb-2"
                         name="content"
                         placeholder="Share your Experience!"
                         value={createFormData.content}
                         onChange={handleInputChange}
                     />
-                    <br />
                     <input
+                        className="w-full px-4 py-2 border rounded mb-2"
                         type="date"
                         name="tripDate"
                         value={createFormData.tripDate}
                         onChange={handleInputChange}
                     />
-                    <br />
-                    <button type="submit">Post</button>
+                    <button
+                        className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+                        type="submit"
+                    >
+                        Post
+                    </button>
                 </form>
             )}
-            {/* Display existing reviews */}
             {reviews.length > 0 ? (
                 reviews.map(review => (
                     <Review
@@ -93,7 +100,7 @@ function ReviewSection({ parkId }) {
             ) : (
                 <p>No reviews yet. Be the first to share your experience!</p>
             )}
-        </>
+        </div>
     );
 }
 
