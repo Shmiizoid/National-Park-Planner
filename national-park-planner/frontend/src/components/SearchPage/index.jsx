@@ -9,6 +9,7 @@ export default function SearchPage(props) {
         const res = await fetch(url)
         const { data } = await res.json();
         setQueryResults(data); 
+        console.log("🤢",data)
     }
 
     function handleQuerySubmit(event) {
@@ -24,7 +25,7 @@ export default function SearchPage(props) {
                 </label>
                 <br />
                 <input
-                    className="p-2 w-[60vw] rounded border border-green-300 focus:outline-none focus:border-green-500"
+                    className="p-2 w-[60vw] rounded border border-black focus:outline-none focus:border-black"
                     name="search"
                     placeholder="Park name"
                     value={query}
@@ -32,7 +33,7 @@ export default function SearchPage(props) {
                 />
                 <button
                     type="submit"
-                    className="mx-1 px-4 py-2 text-green-300 hover:text-white hover:bg-green-800 bg-gray-green rounded transition-all duration-200"
+                    className="mx-1 px-4 py-2 text-white hover:text-white hover:bg-black bg-green-900 rounded transition-all duration-200"
                 >
                     Search
                 </button>

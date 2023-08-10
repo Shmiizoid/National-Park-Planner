@@ -5,6 +5,7 @@ import DetailsPage from '../DetailsPage';
 import './styles.css';
 import ParksPage from '../ParksPage';
 import SearchPage from '../SearchPage'
+import { set } from 'mongoose';
 
 function App() {
   const [parks, setParks] = useState([]);
@@ -58,7 +59,7 @@ function App() {
             path="/parks"
             element={<ParksPage parks={parks} getData={getData} setDetailsData={setDetailsData} />}
           />
-          <Route path="/search" element={<SearchPage />} />
+          <Route path="/search" element={<SearchPage setDetailsData={setDetailsData}/>} />
           <Route path="/details" element={<DetailsPage {...detailsData} />} />
         </Routes>
       </main>
