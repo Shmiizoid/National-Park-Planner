@@ -33,7 +33,7 @@ export default function Review({ data, refreshReviews }) {
             {showEditForm ? (
                 <form onSubmit={handleSubmit}>
                     <input
-                        title="title"
+                        name="title"
                         placeholder="Review title"
                         value={editFormData.title}
                         onChange={handleInputChange}

@@ -46,10 +46,10 @@ function ReviewSection({ parkId }) {
         <div className="p-4 border border-gray-300">
             <h1 className="text-xl font-semibold mb-2">User Reviews</h1>
             <button
-                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                className="px-4 py-2 bg-brown-500 text-black rounded hover:bg-white-600"
                 onClick={toggleCreateForm}
             >
-                {showCreateForm ? 'Close' : 'Create'}
+                {showCreateForm ? 'Close' : 'Add Review'}
             </button>
             {showCreateForm && (
                 <form onSubmit={handleSubmit} className="mt-4">
@@ -82,10 +82,10 @@ function ReviewSection({ parkId }) {
                         onChange={handleInputChange}
                     />
                     <button
-                        className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+                        className="px-4 py-2 bg-green-900 text-white rounded hover:bg-green-900"
                         type="submit"
                     >
-                        Post
+                        Post Review
                     </button>
                 </form>
             )}

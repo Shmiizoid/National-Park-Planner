@@ -18,6 +18,10 @@
   -webkit-text-size-adjust: 100%;
 }
 
+body {
+  background-color: antiquewhite;
+}
+
 img {
   max-width: 350px;
 }
@@ -29,6 +33,10 @@ a {
 }
 a:hover {
   color: #535bf2;
+}
+
+figcaption {
+  color: black
 }
 
 /* body {
