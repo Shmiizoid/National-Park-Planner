@@ -7,6 +7,11 @@ const reviewSchema = new mongoose.Schema(
         content: { type: String, required: true },
         parkId: { type: String, required: true },
         tripDate: { type: Date, required: false},
+        userId: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true,
+            ref: 'User',
+        },
     },
 );
 

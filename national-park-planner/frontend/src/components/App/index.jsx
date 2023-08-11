@@ -5,7 +5,8 @@ import DetailsPage from '../DetailsPage';
 import './styles.css';
 import ParksPage from '../ParksPage';
 import SearchPage from '../SearchPage'
-import { set } from 'mongoose';
+import AuthFormPage from '../AuthFormPage'
+
 
 function App() {
   const [parks, setParks] = useState([]);
@@ -34,12 +35,26 @@ function App() {
           >
             Home
           </Link>
+
           <Link
             to="/parks"
             className="text-white text-xl font-semibold hover:underline hover:text-white mr-6"
           >
             Parks
           </Link>
+
+          <Link to="/auth/signup"
+                className="text-white text-xl font-semibold hover:underline hover:text-white mr-6"
+                >
+                Sign Up
+              </Link>
+    
+              <Link to="/auth/login"
+               className="text-white text-xl font-semibold hover:underline hover:text-white mr-6"
+               >
+                Log In
+              </Link>
+
           <div className="ml-auto">
             <Link
               to="/search"
@@ -61,6 +76,7 @@ function App() {
           />
           <Route path="/search" element={<SearchPage setDetailsData={setDetailsData}/>} />
           <Route path="/details" element={<DetailsPage {...detailsData} />} />
+          <Route path="/auth/:formType" element={<AuthFormPage />} />
         </Routes>
       </main>
 

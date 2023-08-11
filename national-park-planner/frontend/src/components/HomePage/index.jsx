@@ -17,7 +17,7 @@ export default function HomePage() {
     }, []);
 
     const firstArticle = articles.length > 0 ? articles[0] : null;
-    const defaultImageUrl = 'https://www.amtrakvacations.com/sites/amtrak/files/styles/hero/public/images/Destination-Yosemite.jpg?h=3a3df0c5&itok=rGMyppyy';
+    const defaultImageUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/US-NationalParkService-Logo.svg/1200px-US-NationalParkService-Logo.svg.png';
 
     function formatReleaseDate(releaseDate) {
         const date = new Date(releaseDate);

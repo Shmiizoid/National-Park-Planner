@@ -7,6 +7,8 @@ const path = require('path')
 const db = require('./models');
 
 const reviewsCtrl = require('./controllers/reviews')
+const usersCtrl = require('./controllers/users')
+
 
 const app = express();
 
@@ -18,6 +20,7 @@ app.use(express.json())
 
 // /* Mount routes*/
 app.use('/api/reviews', reviewsCtrl)
+app.use('/api/users', usersCtrl)
 
 // /* Tell the app to listen on the specified port
 // ---------------------------------------------------------- */

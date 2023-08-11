@@ -11,4 +11,5 @@ db.on('connected', function () {
 
 module.exports = {
     Review: require('./review'),
+    User: require('./user')
 }
