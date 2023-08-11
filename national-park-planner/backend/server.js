@@ -22,8 +22,7 @@ app.use(express.json())
 app.use('/api/reviews', reviewsCtrl)
 app.use('/api/users', usersCtrl)
 
-// /* Tell the app to listen on the specified port
-// ---------------------------------------------------------- */
+
 app.listen(process.env.PORT, function () {
     console.log('Express is listening to port', process.env.PORT);
 });

@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { signUp, logIn } from "../../../utils/backend";
 
 
-export default function AuthFormPage() {
+export default function AuthFormPage({ setLoggedInUser }) {
     const { formType } = useParams();
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
@@ -17,17 +17,19 @@ export default function AuthFormPage() {
 
     async function handleSubmit(event) {
         event.preventDefault();
-
+    
         if (formType === 'login') {
-            const { token } = await logIn(formData);
-            localStorage.setItem('userToken', token);
+          const { token, email } = await logIn(formData);
+          localStorage.setItem('userToken', token);
+          setLoggedInUser({ email }); // Set the logged-in user's email
         } else {
-            const { token } = await signUp(formData);
-            localStorage.setItem('userToken', token);
+          const { token, email } = await signUp(formData);
+          localStorage.setItem('userToken', token);
+          setLoggedInUser({ email }); // Set the logged-in user's email
         }
-
+    
         navigate('/');
-    }
+      }
 
     return (
         <div className="flex items-center justify-center h-[90vh]">

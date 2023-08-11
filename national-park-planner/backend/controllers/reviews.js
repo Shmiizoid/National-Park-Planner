@@ -59,7 +59,7 @@ router.put('/:id', authMiddleware, async (req, res) => {
 // Destroy
 router.delete('/:id', authMiddleware, async (req, res) => {
     const userReview = await db.Review.findById(req.params.id)
-    if (userReview.userId === req.user.id) {
+    if (userReview.userId.toString() === req.user.id) {
         const deletedReview = await db.Review.findByIdAndRemove(req.params.id)
         res.send('You deleted review ' + deletedReview._id)
     } else {

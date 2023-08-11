@@ -11,6 +11,16 @@ import AuthFormPage from '../AuthFormPage'
 function App() {
   const [parks, setParks] = useState([]);
   const [detailsData, setDetailsData] = useState({});
+  const [loggedInUser, setLoggedInUser] = useState(null);
+
+  useEffect(() => {
+    const userToken = localStorage.getItem('userToken');
+    if (userToken) {
+      setLoggedInUser({ email: 'example@example.com' }); 
+    }
+  }, []);
+
+
 
   async function getData(url) {
     const res = await fetch(url);
@@ -62,6 +72,11 @@ function App() {
             >
               Search
             </Link>
+          {loggedInUser && (
+            <div className="text-white text-xl font-semibold">
+              Logged in as: {loggedInUser.email}
+            </div>
+          )}
           </div>
         </nav>
       </header>
@@ -76,7 +91,7 @@ function App() {
           />
           <Route path="/search" element={<SearchPage setDetailsData={setDetailsData}/>} />
           <Route path="/details" element={<DetailsPage {...detailsData} />} />
-          <Route path="/auth/:formType" element={<AuthFormPage />} />
+          <Route path="/auth/:formType" element={<AuthFormPage setLoggedInUser={setLoggedInUser} />} />
         </Routes>
       </main>
 
