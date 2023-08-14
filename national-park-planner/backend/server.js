@@ -2,7 +2,7 @@ require('dotenv').config()
 const express = require('express');
 const cors = require('cors')
 const path = require('path')
-
+const app = express();
 // use the React build folder for static files
 app.use(express.static(path.join(path.dirname(__dirname), 'frontend', 'dist')))
 
@@ -11,8 +11,9 @@ const db = require('./models');
 const reviewsCtrl = require('./controllers/reviews')
 const usersCtrl = require('./controllers/users')
 
-const app = express();
 
+
+app.use(express.static(path.join(path.dirname(__dirname), 'frontend', 'dist')))
 // /* Middleware */
 app.use(cors())
 app.use(express.urlencoded({ extended: true }));
@@ -29,6 +30,6 @@ app.get('*', (req, res) => {
 });
 
 
-app.listen(process.env.PORT, function () {
+app.listen(process.env.PORT || 3000, function () {
     console.log('Express is listening to port', process.env.PORT);
 });
