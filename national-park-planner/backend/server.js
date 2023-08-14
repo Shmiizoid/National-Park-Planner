@@ -13,7 +13,6 @@ const usersCtrl = require('./controllers/users')
 
 
 
-app.use(express.static(path.join(path.dirname(__dirname), 'frontend', 'dist')))
 // /* Middleware */
 app.use(cors())
 app.use(express.urlencoded({ extended: true }));
@@ -30,6 +29,6 @@ app.get('*', (req, res) => {
 });
 
 
-app.listen(process.env.PORT || 3000, function () {
+app.listen(process.env.PORT, function () {
     console.log('Express is listening to port', process.env.PORT);
 });
