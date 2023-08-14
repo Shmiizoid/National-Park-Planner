@@ -4,7 +4,7 @@ const cors = require('cors')
 const path = require('path')
 const app = express();
 // use the React build folder for static files
-app.use(express.static(path.join(path.dirname(__dirname), 'frontend', 'dist')))
+
 
 const db = require('./models');
 
@@ -18,6 +18,7 @@ app.use(cors())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
 
+app.use(express.static(path.join(path.dirname(__dirname), 'frontend', 'dist')))
 
 // /* Mount routes*/
 app.use('/api/reviews', reviewsCtrl)
