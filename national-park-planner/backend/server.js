@@ -2,7 +2,7 @@ require('dotenv').config()
 const express = require('express');
 const cors = require('cors')
 const path = require('path')
-const app = express();
+
 // use the React build folder for static files
 app.use(express.static(path.join(path.dirname(__dirname), 'frontend', 'dist')))
 
@@ -11,7 +11,7 @@ const db = require('./models');
 const reviewsCtrl = require('./controllers/reviews')
 const usersCtrl = require('./controllers/users')
 
-
+const app = express();
 
 // /* Middleware */
 app.use(cors())
