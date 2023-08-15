@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import HomePage from '../HomePage';
 import DetailsPage from '../DetailsPage';
-import './styles.css';
+// import './styles.css';
 import ParksPage from '../ParksPage';
 import SearchPage from '../SearchPage';
 import AuthFormPage from '../AuthFormPage';
@@ -40,11 +40,9 @@ function App() {
         <nav className="max-w-7xl mx-auto px-4 py-6 md:flex md:justify-between md:items-center md:space-x-4 flex-col items-center">
         <div className="md:flex md:justify-between md:items-center md:w-full">
             <div className="md:flex md:items-center md:space-x-4">
-              <Link
-                to="/"
-                className="text-white text-2xl font-semibold hover:text-gray-300"
-              >
-                National Park Planner
+            <Link to="/"
+              className="text-white text-4xl font-extrabold hover:text-gray-300">
+                  National Park Planner
               </Link>
             </div>
             <div

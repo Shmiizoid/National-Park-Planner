@@ -32,7 +32,7 @@ export default function AuthFormPage({ setLoggedInUser }) {
   }
 
   return (
-    <div >
+    <div id="form">
     <div className="flex items-center justify-center h-[90vh] bg-warm-gray-100">
       <div className="bg-white rounded-lg shadow-xl p-8 w-full max-w-md">
         <h2 className="text-3xl text-center font-bold text-gray-700 mb-6">
