@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { signUp, logIn } from "../../../utils/backend";
+import './styles.css';
 
 export default function AuthFormPage({ setLoggedInUser }) {
   const { formType } = useParams();
@@ -31,6 +32,7 @@ export default function AuthFormPage({ setLoggedInUser }) {
   }
 
   return (
+    <div >
     <div className="flex items-center justify-center h-[90vh] bg-warm-gray-100">
       <div className="bg-white rounded-lg shadow-xl p-8 w-full max-w-md">
         <h2 className="text-3xl text-center font-bold text-gray-700 mb-6">
@@ -78,6 +80,7 @@ export default function AuthFormPage({ setLoggedInUser }) {
           </div>
         </form>
       </div>
+    </div>
     </div>
   );
 }
