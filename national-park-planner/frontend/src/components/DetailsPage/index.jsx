@@ -48,7 +48,7 @@ export default function DetailsPage(props) {
                             </ul>
                             {props.activities.length > 5 && (
                                 <button
-                                    className="px-6 py-2 bg-teal-600 text-white rounded hover:bg-teal-700 transition duration-300 mt-4 self-start"
+                                className="px-6 py-3 text-white bg-green-600 rounded hover:bg-green-700 transition-all duration-200"
                                     onClick={() => setShowAllActivities(!showAllActivities)}
                                 >
                                     {showAllActivities ? 'Show Less' : 'Show All Activities'}

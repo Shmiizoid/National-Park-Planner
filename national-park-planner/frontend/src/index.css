@@ -26,14 +26,14 @@ body {
   max-width: 350px;
 } */
 
-a {
+/* a {
   font-weight: 500;
  
   text-decoration: inherit;
-}
-a:hover {
+} */
+/* a:hover {
   color: #535bf2;
-}
+} */
 
 figcaption {
   color: black
@@ -47,11 +47,11 @@ figcaption {
   min-height: 100vh;
 } */
 
-h1 {
+/* h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
-
+} */
+/* 
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -63,15 +63,15 @@ button {
   background-color:goldenrod;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-button:hover {
+} */
+/* button:hover {
   border-color: black;
   border-width: 3px;
-}
-button:focus,
+} */
+/* button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+} */
 
 /* @media (prefers-color-scheme: light) {
   :root {
