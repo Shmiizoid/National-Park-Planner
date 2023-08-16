@@ -2,7 +2,7 @@
 The National Park Explorer App is a web application designed to assist users in choosing the ideal national park to visit based on their preferences and interests. Additionally, users can leave reviews for the parks they have visited and provide valuable tips for other travelers. Whether you're an outdoor enthusiast, a nature lover, or a family looking for a memorable vacation, this app will help you make informed decisions about your next national park adventure.
 
 # Screen Shots
-![Landing]/national-park-planner/screenshots/screenshot1.png
+![Landing](/national-park-planner/screenshots/screenshot1.png)
 ![Parks](/national-park-planner/screenshots/screenshot2.png)
 ![Details](/national-park-planner/screenshots/screenshot3.png)
 
@@ -40,7 +40,7 @@ The National Park Explorer App is a web application designed to assist users in 
 -Traveler (User): Wants insider tips and recommendations from people who have visited specific national parks, enhancing the overall travel experience.
 
 # Wireframes
-
+![Wireframes](/national-park-planner/screenshots/wireframes.png)
 
 # Major Hurdles
 - Dealing with server maintenance from the API host proved to be a hurdle for me. There was no schedule for the maintenance so I was unaware if my errors were caused by me or the API at times.
