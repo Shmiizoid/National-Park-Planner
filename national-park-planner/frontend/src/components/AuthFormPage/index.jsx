@@ -21,11 +21,11 @@ export default function AuthFormPage({ setLoggedInUser }) {
     if (formType === "login") {
       const { token, email } = await logIn(formData);
       localStorage.setItem("userToken", token);
-      setLoggedInUser({ email }); // Set the logged-in user's email
+      setLoggedInUser({ email });
     } else {
       const { token, email } = await signUp(formData);
       localStorage.setItem("userToken", token);
-      setLoggedInUser({ email }); // Set the logged-in user's email
+      setLoggedInUser({ email });
     }
 
     navigate("/");
