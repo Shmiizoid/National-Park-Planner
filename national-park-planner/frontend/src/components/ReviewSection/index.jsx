@@ -13,7 +13,6 @@ function ReviewSection({ parkId }) {
   });
 
   useEffect(() => {
-    console.log(parkId);
     getReviews(parkId).then((reviews) => setReviews(reviews));
   }, []);
 
@@ -42,20 +41,20 @@ function ReviewSection({ parkId }) {
   }
 
   return (
-    <div className="bg-gray-100 min-h-screen flex flex-col items-center justify-center">
-    <div className="bg-white p-6 rounded-lg shadow-md w-full md:max-w-md">
-      <h1 className="text-3xl font-semibold mb-4 text-center">User Reviews</h1>
-      <button
-        className={`px-4 py-2 rounded ${
-          showCreateForm
-            ? "bg-red-600 text-white hover:bg-red-700"
-            : "bg-green-600 text-white hover:bg-green-700"
-        } transition duration-300`}
-        onClick={toggleCreateForm}
-      >
-        {showCreateForm ? "Close" : "Write a Review"}
-      </button>
-      {showCreateForm && (
+    <div className="max-w-5xl mx-auto mb-12">
+      <section className="review-section">
+        <h1 className="text-3xl font-semibold mb-4 text-center">User Reviews</h1>
+        <button
+          className={`px-4 py-2 rounded ${
+            showCreateForm
+              ? "bg-red-600 text-white hover:bg-red-700"
+              : "bg-green-600 text-white hover:bg-green-700"
+          } transition duration-300 w-full`}
+          onClick={toggleCreateForm}
+        >
+          {showCreateForm ? "Close" : "Write a Review"}
+        </button>
+        {showCreateForm && (
           <form onSubmit={handleSubmit} className="mt-4 space-y-4">
             <input
               className="w-full px-4 py-2 border rounded"
@@ -108,7 +107,7 @@ function ReviewSection({ parkId }) {
             </p>
           )}
         </div>
-      </div>
+      </section>
     </div>
   );
 }

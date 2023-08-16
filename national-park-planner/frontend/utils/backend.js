@@ -2,9 +2,9 @@ import axios from 'axios'
 const authHeader = { headers: { 'Authorization': localStorage.getItem('userToken') } }
 
 export async function getReviews(parkId) {
-    console.log("🥸",parkId)
+
     const { data } = await axios.get(`/api/reviews/${parkId}`)
-    console.log("😱",data)
+  
     return data
 }
 

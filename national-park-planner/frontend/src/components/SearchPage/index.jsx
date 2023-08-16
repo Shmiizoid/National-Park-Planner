@@ -29,6 +29,7 @@ export default function SearchPage(props) {
 
   
   return (
+    <div id="search">
     <div className="flex flex-col items-center justify-center min-h-screen bg-warm-gray-100">
       <div className="bg-white p-6 rounded-lg shadow-md max-w-md w-full">
         <h1 className="text-3xl font-bold mb-4 text-center">Search for Parks</h1>
@@ -62,7 +63,8 @@ export default function SearchPage(props) {
             updateDetails={props.setDetailsData}
           />
         </div>
-      )}
+       )}
+      </div>
     </div>
   );
 }

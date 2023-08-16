@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import HomePage from '../HomePage';
 import DetailsPage from '../DetailsPage';
-import './styles.css';
 import ParksPage from '../ParksPage';
 import SearchPage from '../SearchPage';
 import AuthFormPage from '../AuthFormPage';
@@ -11,7 +10,7 @@ function App() {
   const [parks, setParks] = useState([]);
   const [detailsData, setDetailsData] = useState({});
   const [loggedInUser, setLoggedInUser] = useState(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // Add this state
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); 
 
   useEffect(() => {
     const userToken = localStorage.getItem('userToken');
@@ -27,7 +26,6 @@ function App() {
     const nationalParks = data.filter((park) => park.designation === 'National Park');
 
     setParks(nationalParks);
-    console.log(nationalParks);
   }
 
   useEffect(() => {
