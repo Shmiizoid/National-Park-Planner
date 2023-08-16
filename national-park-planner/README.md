@@ -8,25 +8,39 @@ The National Park Explorer App is a web application designed to assist users in 
 
 # Technologies Used
 -MongoDB: Database for storing park information, user reviews, and tips.
+
 -Express.js: Backend framework for handling server-side logic.
+
 -React: Frontend library for building interactive user interfaces.
+
 -Node.js: Runtime environment for server-side scripting.
+
 -React Router: Navigation within the app.
+
 -Tailwind CSS: CSS framework.
+
 -JWT Authentication: User authentication and security.
+
 -Axios: Making API requests from the frontend.
 
 # Installation Instructions
 -Clone the repository: git clone https://github.com/your-username/national-park-planner.git
+
 -Navigate to the project directory: cd national-park-planner
+
 -Install server dependencies: npm install
+
 -Navigate to the client directory: cd client
+
 -Install client dependencies: npm install
+
 -Return to the project directory: cd ..
+
 -Run the development server for the frontend:
  ' npm run frontend '
 
 -Open a new terminal window and navigate to the project directory again.
+
 -Run the backend server:
  '  npm run backend   '
 
